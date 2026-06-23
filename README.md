@@ -1,54 +1,27 @@
-# meteo.lt API – Meteorologinių duomenų analizė
+# meteo.lt duomenu analize
 
-Python projektas, kuris naudoja [meteo.lt REST API](https://api.meteo.lt/) meteorologiniams duomenims nuskaityti ir analizuoti.
-
-## Struktūra
-
-```
-meteo_project/
-├── meteo_client.py     # MeteoClient klasė (1 punktas)
-├── analysis.py         # Analizės funkcijos (2–4 punktai)
-├── main.py             # Pagrindinis scenarijus
-├── meteo_analysis.ipynb  # Jupyter Notebook versija
-├── requirements.txt
-└── README.md
-```
-
-## Įdiegimas
-
-```bash
-pip install -r requirements.txt
-```
+Trumpas Python projektas, kuris per `https://api.meteo.lt/v1` nuskaito Kauno meteorologinius duomenis ir atlieka uzduotyje prasytus skaiciavimus.
 
 ## Paleidimas
 
 ```bash
+pip install -r requirements.txt
 python main.py
 ```
 
-arba Jupyter Notebook:
+## Failai
 
-```bash
-jupyter notebook meteo_analysis.ipynb
-```
+- `meteo_client.py` - `MeteoClient` klase API duomenims nuskaityti.
+- `analysis.py` - skaiciavimu, grafiko ir interpoliavimo funkcijos.
+- `main.py` - pagrindinis paleidimo failas.
+- `meteo_ataskaita.docx` - trumpa darbo ataskaita.
 
-## Funkcionalumas
+## Kas atliekama
 
-### 1. `MeteoClient` klasė
-- `fetch_historical(start, end)` – istoriniai stebėjimai už nurodytą laikotarpį
-- `fetch_forecast()` – trumpalaikė prognozė
-- Grąžina `pd.DataFrame` su `pd.DatetimeIndex` (LT laiko zona `Europe/Vilnius`)
-
-### 2. Analizė
-- **2a** – vidutinė metų temperatūra ir oro drėgmė
-- **2b** – dienos (08:00–20:00) ir nakties vidutinė temperatūra
-- **2c** – lietingų savaitgalių skaičius
-
-### 3. Grafikas
-Kombinuotas grafikas: paskutinė savaitė (išmatuota) + prognozė
-
-### 4. Persemplavimas
-`resample_to_5min(series)` – valandinę Series konvertuoja į 5 min dažnį naudojant tiesinę interpoliaciją
-
-## API dokumentacija
-https://api.meteo.lt/
+1. Istoriniai ir prognozes duomenys grazinami kaip `pandas.DataFrame` su `DatetimeIndex` ir `Europe/Vilnius` laiko zona.
+2. Is paskutiniu metu istoriniu duomenu apskaiciuojama:
+   - vidutine metu temperatura ir oro dregme;
+   - vidutine dienos ir nakties temperatura;
+   - lietingu savaitgaliu skaicius.
+3. Sukuriamas grafikas `temperature_plot.png`, kuriame rodoma paskutines savaites ismatuota temperatura ir prognoze.
+4. Funkcija `interpolate_temperature_5min` valandine temperatura interpoliuoja i 5 minuciu dazni.
