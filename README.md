@@ -2,6 +2,8 @@
 
 Trumpas Python projektas, kuris per `https://api.meteo.lt/v1` nuskaito Kauno meteorologinius duomenis ir atlieka uzduotyje prasytus skaiciavimus.
 
+Duomenu saltinis: Lietuvos hidrometeorologijos tarnyba (LHMT), meteo.lt API.
+
 ## Paleidimas
 
 ```bash
@@ -14,7 +16,7 @@ python main.py
 - `meteo_client.py` - `MeteoClient` klase API duomenims nuskaityti.
 - `analysis.py` - skaiciavimu, grafiko ir interpoliavimo funkcijos.
 - `main.py` - pagrindinis paleidimo failas.
-- `meteo_ataskaita.docx` - trumpa darbo ataskaita.
+- `meteo_ataskaita.docx` / `meteo_ataskaita.pdf` - trumpa darbo ataskaita.
 
 ## Kas atliekama
 
@@ -25,3 +27,7 @@ python main.py
    - lietingu savaitgaliu skaicius.
 3. Sukuriamas grafikas `temperature_plot.png`, kuriame rodoma paskutines savaites ismatuota temperatura ir prognoze.
 4. Funkcija `interpolate_temperature_5min` valandine temperatura interpoliuoja i 5 minuciu dazni.
+
+## Duomenu saltinis
+
+Meteorologiniai duomenys naudojami is meteo.lt API. Duomenu saltinis: Lietuvos hidrometeorologijos tarnyba (LHMT).
