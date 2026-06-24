@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import date, datetime
+from datetime import date
 from time import sleep
 import pandas as pd
 import requests
@@ -84,8 +84,3 @@ class MeteoClient:
                 df[column] = numeric
 
         return df
-
-
-# Suderinamumas su ankstesniais failais, jei notebook'e naudoti seni vardai.
-MeteoClient.fetch_historical = MeteoClient.get_historical_data
-MeteoClient.fetch_forecast = MeteoClient.get_forecast_data

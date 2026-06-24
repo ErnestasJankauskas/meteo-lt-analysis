@@ -66,11 +66,3 @@ def interpolate_temperature_5min(temperature: pd.Series) -> pd.Series:
         raise TypeError("Series indeksas turi buti pd.DatetimeIndex.")
 
     return temperature.resample("5min").interpolate("time")
-
-
-# Suderinamumas su ankstesniais vardais.
-compute_annual_averages = annual_averages
-compute_day_night_temperatures = day_night_temperature
-count_rainy_weekends = rainy_weekends
-plot_temperature_combined = plot_temperature
-resample_to_5min = interpolate_temperature_5min
